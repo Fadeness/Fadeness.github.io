@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ACM,算法,数据结构,树," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是并查集并查集是一种树形的数据结构,用于处理一些不相交集合的合并及查询问题. 并查集可以看作一个森林,森林中的每一颗树都代表着一个集合.">
+<meta name="keywords" content="ACM,算法,数据结构,树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并查集">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/并查集/index.html">
+<meta property="og:site_name" content="Fringe">
+<meta property="og:description" content="什么是并查集并查集是一种树形的数据结构,用于处理一些不相交集合的合并及查询问题. 并查集可以看作一个森林,森林中的每一颗树都代表着一个集合.">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-17T22:56:36.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="并查集">
+<meta name="twitter:description" content="什么是并查集并查集是一种树形的数据结构,用于处理一些不相交集合的合并及查询问题. 并查集可以看作一个森林,森林中的每一颗树都代表着一个集合.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/并查集/"/>
+
+
+
+
+
+  <title>并查集 | Fringe</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fringe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">where pain covers</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/并查集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fadeness">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fringe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">并查集</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-16T20:00:47+08:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是并查集"><a href="#什么是并查集" class="headerlink" title="什么是并查集"></a>什么是并查集</h2><p>并查集是一种树形的数据结构,用于处理一些不相交集合的合并及查询问题.</p>
+<p>并查集可以看作一个森林,森林中的每一颗树都代表着一个集合.</p>
+<a id="more"></a>
+<h3 id="并查集的主要操作"><a href="#并查集的主要操作" class="headerlink" title="并查集的主要操作"></a>并查集的主要操作</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;  <span class="comment">//将每个元素的父亲指向自己,</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) fa[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;  <span class="comment">//返回v的祖先</span></span><br><span class="line">    <span class="keyword">return</span> fa[v] = fa[v] == v ? v : find(fa[v]); <span class="comment">//路径压缩</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h4> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unin</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span></span>&#123;  <span class="comment">//将u,v所在的树合并</span></span><br><span class="line">    <span class="keyword">int</span> fu = find(u);</span><br><span class="line">    <span class="keyword">int</span> fv = find(v);</span><br><span class="line">    <span class="keyword">if</span>(fu == fv) <span class="keyword">return</span>;</span><br><span class="line">    fa[fv] = fu;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="经典例题"><a href="#经典例题" class="headerlink" title="经典例题"></a>经典例题</h3><h4 id="poj1611"><a href="#poj1611" class="headerlink" title="poj1611"></a><a href="http://poj.org/problem?id=1611" target="_blank" rel="noopener">poj1611</a></h4><h5 id="题目翻译"><a href="#题目翻译" class="headerlink" title="题目翻译"></a>题目翻译</h5><p>学校里有许多社团,同一个社团里的学生彼此之间来往密切,一个学生可能加入了多个社团.一旦一个社团里一名学生被认定为病毒携带嫌疑人,该社团其他成员都会被认定为病毒携带嫌疑人.学校发现当知道一名同学为嫌疑人时,要确定所有嫌疑人是一件很困难的事,所以你的工作就是写一个程序来找出所有的嫌疑人.</p>
+<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><p>输入文件包含多组数据.每组数据第一行有n,m两个正整数,n代表学生总数,m代表社团的总数.其中 0 &lt; n &lt;= 30000 , 0 &lt;= m &lt;= 500.每一个学生都有一个从0到n-1的单独编号,并且对于所有数据编号为0的学生是病毒携带嫌疑人.接下来又m行,每行代表一个社团.每行第一个数k代表该组人数,接下来k个数代表该社团的学生. n = 0且m = 0的数据代表输入文件结束,并且不需要处理.</p>
+<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><p>对每一组数据,输出一行病毒携带嫌疑人总人数</p>
+<h5 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h5><blockquote>
+<p>100 4<br>2 1 2<br>5 10 13 11 12 14<br>2 0 1<br>2 99 2<br>200 2<br>1 5<br>5 1 2 3 4 5<br>1 0<br>0 0</p>
+</blockquote>
+<h5 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h5><blockquote>
+<p>4<br>1<br>1</p>
+</blockquote>
+<h5 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h5><p>根据题目意思,只需要对同一社团的人执行合并操作,完成后对于除0外的所有学生i,如果i和0拥有共同的祖先,那么嫌疑人总人数加一,所得的总人数即该题答案.</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Maxn 30005</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N,M;</span><br><span class="line"><span class="keyword">int</span> fa[Maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(fa[u] != u)</span><br><span class="line">	&#123;</span><br><span class="line">		fa[u] = find(fa[u]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>(fa[u]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unin</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fau = find(u);</span><br><span class="line">	<span class="keyword">int</span> fav = find(v);</span><br><span class="line">	<span class="keyword">if</span>(fau == fav) <span class="keyword">return</span>;</span><br><span class="line">	fa[fav] = fau;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(N == <span class="number">0</span> &amp;&amp; M == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) fa[i] = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= M; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> k,x1;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; k &gt;&gt; x1;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; k; j++)&#123;</span><br><span class="line">				<span class="keyword">int</span> x;</span><br><span class="line">				<span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">				unin(x1,x);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;N;i++) <span class="keyword">if</span>(find(i) == find(<span class="number">0</span>)) ans++;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/" rel="tag"># ACM</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/树/" rel="tag"># 树</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/12/ScrollMagic中文文档/" rel="next" title="ScrollMagic中文文档(暂停更新,暑假恢复)">
+                <i class="fa fa-chevron-left"></i> ScrollMagic中文文档(暂停更新,暑假恢复)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Fadeness</p>
+              <p class="site-description motion-element" itemprop="description">Broken Arrows in the Dark</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Fadeness" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:Fadeness@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/111873320288468492241" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/map1eceaster" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是并查集"><span class="nav-number">1.</span> <span class="nav-text">什么是并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并查集的主要操作"><span class="nav-number">1.1.</span> <span class="nav-text">并查集的主要操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-number">1.1.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">1.1.2.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并"><span class="nav-number">1.1.3.</span> <span class="nav-text">合并</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#经典例题"><span class="nav-number">1.2.</span> <span class="nav-text">经典例题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#poj1611"><span class="nav-number">1.2.1.</span> <span class="nav-text">poj1611</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#题目翻译"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">题目翻译</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输入"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#样例输入"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#样例输出"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#题解"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fadeness</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
