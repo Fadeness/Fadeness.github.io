@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端,插件,文档,翻译," />
+  <meta name="keywords" content="前端,JavaScript," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一个提供神奇的滚动交互的javascript库    ScrollMagic能够帮助你非常简单地对用户当前的滚动位置作出响应如果你想实现以下操作，对你来说这将是最合适的扩展库  基于滚动位置的动画 - 无论是触发一个动画或者将它同步到滚动条的移动(比如禁止回滚控制) 从特定的滚动位置开始固定一个元素 - 无论是一直固定还是只固定一段有限滚动进度(黏着元素) 基于滚动位置来切换元素的CSS类的开关">
-<meta name="keywords" content="前端,插件,文档,翻译">
+<meta name="description" content="在平时上网过程中,我们有时会见到这样一种网页 —— 随着你鼠标的滚动,会出现很有趣的交互效果,比如这个想要实现这种效果,一种方法就是做到对页面滚动事件的监听.通过监听获得的滚动条位置来决定相应的交互效果">
+<meta name="keywords" content="前端,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ScrollMagic中文文档(暂停更新,暑假恢复)">
-<meta property="og:url" content="http://yoursite.com/2018/05/12/ScrollMagic中文文档/index.html">
+<meta property="og:title" content="html滚动交互(一)">
+<meta property="og:url" content="http://yoursite.com/2018/05/18/html滚动交互(一)/index.html">
 <meta property="og:site_name" content="Fringe">
-<meta property="og:description" content="一个提供神奇的滚动交互的javascript库    ScrollMagic能够帮助你非常简单地对用户当前的滚动位置作出响应如果你想实现以下操作，对你来说这将是最合适的扩展库  基于滚动位置的动画 - 无论是触发一个动画或者将它同步到滚动条的移动(比如禁止回滚控制) 从特定的滚动位置开始固定一个元素 - 无论是一直固定还是只固定一段有限滚动进度(黏着元素) 基于滚动位置来切换元素的CSS类的开关">
+<meta property="og:description" content="在平时上网过程中,我们有时会见到这样一种网页 —— 随着你鼠标的滚动,会出现很有趣的交互效果,比如这个想要实现这种效果,一种方法就是做到对页面滚动事件的监听.通过监听获得的滚动条位置来决定相应的交互效果">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-15T07:13:47.984Z">
+<meta property="og:updated_time" content="2018-05-19T11:27:47.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ScrollMagic中文文档(暂停更新,暑假恢复)">
-<meta name="twitter:description" content="一个提供神奇的滚动交互的javascript库    ScrollMagic能够帮助你非常简单地对用户当前的滚动位置作出响应如果你想实现以下操作，对你来说这将是最合适的扩展库  基于滚动位置的动画 - 无论是触发一个动画或者将它同步到滚动条的移动(比如禁止回滚控制) 从特定的滚动位置开始固定一个元素 - 无论是一直固定还是只固定一段有限滚动进度(黏着元素) 基于滚动位置来切换元素的CSS类的开关">
+<meta name="twitter:title" content="html滚动交互(一)">
+<meta name="twitter:description" content="在平时上网过程中,我们有时会见到这样一种网页 —— 随着你鼠标的滚动,会出现很有趣的交互效果,比如这个想要实现这种效果,一种方法就是做到对页面滚动事件的监听.通过监听获得的滚动条位置来决定相应的交互效果">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/12/ScrollMagic中文文档/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/18/html滚动交互(一)/"/>
 
 
 
 
 
-  <title>ScrollMagic中文文档(暂停更新,暑假恢复) | Fringe</title>
+  <title>html滚动交互(一) | Fringe</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/12/ScrollMagic中文文档/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/html滚动交互(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fadeness">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ScrollMagic中文文档(暂停更新,暑假恢复)</h1>
+          <h1 class="post-title" itemprop="name headline">html滚动交互(一)</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-12T14:58:26+08:00">
-                2018-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-18T15:50:38+08:00">
+                2018-05-18
               </time>
             
 
@@ -292,28 +292,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文档/" itemprop="url" rel="index">
-                    <span itemprop="name">文档</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -342,34 +320,18 @@
       
 
       
-        <p style="font-size:18px">一个提供神奇的滚动交互的javascript库</p>
-
-<div style="margin-top:15px"></div>
-
-<p>ScrollMagic能够帮助你非常简单地对用户当前的滚动位置作出响应<br>如果你想实现以下操作，对你来说这将是最合适的扩展库</p>
-<ul>
-<li>基于滚动位置的动画 - 无论是触发一个动画或者将它同步到滚动条的移动(比如禁止回滚控制)</li>
-<li>从特定的滚动位置开始固定一个元素 - 无论是一直固定还是只固定一段有限滚动进度(黏着元素)</li>
-<li>基于滚动位置来切换元素的CSS类的开关</li>
-<li>毫不费力地将视差效果添加到你的网站</li>
-<li>创建一个无限滚动的页面(ajax加载额外的内容)</li>
-<li>在特定的滚动位置添加回调,或者当滚动通过一个特定的部分时,传递一个进度参数</li>
-</ul>
-<p>查看<a href="http://scrollmagic.io/" target="_blank" rel="noopener">演示页面</a> , 浏览<a href="http://scrollmagic.io/examples/index.html" target="_blank" rel="noopener">样例</a>或者阅读<a href="http://scrollmagic.io/docs/index.html" target="_blank" rel="noopener">文档</a>来开始</p>
+        <p>在平时上网过程中,我们有时会见到这样一种网页 —— 随着你鼠标的滚动,会出现很有趣的交互效果,比如<a href="http://alfredservice.com/" target="_blank" rel="noopener">这个</a><br>想要实现这种效果,一种方法就是做到对页面滚动事件的监听.通过监听获得的滚动条位置来决定相应的交互效果</p>
 <a id="more"></a>
-<h1 id="关于库"><a href="#关于库" class="headerlink" title="关于库"></a>关于库</h1><p>ScrollMagic是一个滚动交互库</p>
-<p>是由<a href="http://johnpolacek.com/" target="_blank" rel="noopener">John Polacek</a>编写的<a href="https://github.com/johnpolacek/superscrollorama" target="_blank" rel="noopener">Superscrollorama</a>的基础上的完全改写<br>一个基于插件的架构提供了易于定制和扩展的功能</p>
-<p>为了实现动画,ScrollMagic能够使用多个框架.由于其稳定性和丰富的特性,推荐的解决方案是<a href="http://www.greensock.com/gsap-js/" target="_blank" rel="noopener">Greensock Animation Platform(GSAP)</a>.更轻量级的选择<a href="http://velocityjs.org/" target="_blank" rel="noopener">VelocityJS</a>框架同样也被支持.另外可以实现自定义扩展或者可以完全不用框架，仅靠CSS和类切换来实现动画.</p>
-<p>ScrollMagic是在以下原则下开发的:</p>
-<ul>
-<li>优化的性能</li>
-<li>轻量级(压缩后仅6KB)</li>
-<li>灵活性和可扩展性</li>
-<li>移动端兼容性</li>
-<li>事件管理</li>
-<li>对响应式页面设计的支持</li>
-<li>面向对象编程和对象链接</li>
-</ul>
+<h2 id="利用scroll进行滚动监听"><a href="#利用scroll进行滚动监听" class="headerlink" title="利用scroll进行滚动监听"></a>利用scroll进行滚动监听</h2><p>用jquery为JavaScript的”scroll”事件绑定一个处理函数，或者触发元素上的该事件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(selector).scroll(<span class="function"><span class="keyword">function</span>)</span></span><br></pre></td></tr></table></figure></p>
+<p>当selector所选的元素发生了滚动事件,就会执行funciton方法<br>当一个元素的内容没有产生垂直方向的滚动条，那么无论如何都不会执行function。</p>
+<h2 id="scrollTop"><a href="#scrollTop" class="headerlink" title="scrollTop"></a>scrollTop</h2><p><strong> Element.scrollTop </strong> 属性可以获取或设置一个元素的内容垂直滚动的像素数。<br>一个元素的 <strong> scrollTop </strong> 值是这个元素的顶部到它的最顶部可见内容（的顶部）的距离的度量。当一个元素的内容没有产生垂直方向的滚动条，那么它的<strong> scrollTop </strong>值为0。<br>利用jquery的选择器,用法如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> offset_top = $(selector).scrollTop();  <span class="comment">//获得选择元素的scrollTop值</span></span><br><span class="line"></span><br><span class="line">$(selector).scrollTop(<span class="number">200</span>);  <span class="comment">//设定选择元素的scrollTop值</span></span><br></pre></td></tr></table></figure>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>掌握了上述内容之后,就可以开始尝试一下简单的滚动交互设计</p>
+<h3 id="设计效果"><a href="#设计效果" class="headerlink" title="设计效果"></a>设计效果</h3><p>创建一个相对于窗口定位的元素,当滚动到距离页面头部250px时,给该元素添加active类;当滚动到距离页面头部小于250px时,从该元素中移除active类;当滚动到距离页面头部350px时,从该元素中移除active类</p>
+<h3 id="html部分"><a href="#html部分" class="headerlink" title="html部分"></a>html部分</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="css部分"><a href="#css部分" class="headerlink" title="css部分"></a>css部分</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">1000px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.header</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: black;</span><br><span class="line">    transition: background-color 200ms linear; //添加过渡动画效果</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.active</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="javascript部分"><a href="#javascript部分" class="headerlink" title="javascript部分"></a>javascript部分</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'js/jquery.min.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> offset_top;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span></span><br><span class="line"><span class="javascript">        offset_top = $(<span class="built_in">window</span>).scrollTop();  <span class="comment">//每次scroll事件都更新offset_top的值,保证当前offset_top反映的是正确的值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span>(offset_top &gt;= <span class="number">250</span> &amp;&amp; offset_top &lt; <span class="number">350</span>)&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">'.header'</span>).addClass(<span class="string">'active'</span>);</span></span><br><span class="line"><span class="javascript">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">            $(<span class="string">'.header'</span>).removeClass(<span class="string">'active'</span>);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我们利用scroll和scrollTop实现了简单的滚动交互,这种方法也足以实现比较复杂的滚动交互.滚动交互体验好不好的关键在于设计,至于实现方法都大同小异.想要做出精妙的并且体验良好的滚动交互设计,是要依靠自己天马行空的想象力和合理的网页设计逻辑来实现的.</p>
 
       
     </div>
@@ -389,11 +351,7 @@
           
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/插件/" rel="tag"># 插件</a>
-          
-            <a href="/tags/文档/" rel="tag"># 文档</a>
-          
-            <a href="/tags/翻译/" rel="tag"># 翻译</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -406,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/12/Hello-World/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/05/16/并查集/" rel="next" title="并查集">
+                <i class="fa fa-chevron-left"></i> 并查集
               </a>
             
           </div>
@@ -415,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/16/并查集/" rel="prev" title="并查集">
-                并查集 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -578,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于库"><span class="nav-number">1.</span> <span class="nav-text">关于库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用scroll进行滚动监听"><span class="nav-number">1.</span> <span class="nav-text">利用scroll进行滚动监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scrollTop"><span class="nav-number">2.</span> <span class="nav-text">scrollTop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">3.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计效果"><span class="nav-number">3.1.</span> <span class="nav-text">设计效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html部分"><span class="nav-number">3.2.</span> <span class="nav-text">html部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css部分"><span class="nav-number">3.3.</span> <span class="nav-text">css部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript部分"><span class="nav-number">3.4.</span> <span class="nav-text">javascript部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
