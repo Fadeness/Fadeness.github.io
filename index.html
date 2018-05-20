@@ -297,6 +297,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/18/html滚动交互(一)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/18/html滚动交互(一)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -421,6 +431,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/16/并查集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/16/并查集/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -446,7 +466,8 @@
 
       
         
-          <h2 id="什么是并查集"><a href="#什么是并查集" class="headerlink" title="什么是并查集"></a>什么是并查集</h2><p>并查集是一种树形的数据结构,用于处理一些不相交集合的合并及查询问题.</p>
+          <h2 id="前文"><a href="#前文" class="headerlink" title="前文"></a>前文</h2><p>本文参考自<a href="https://baike.baidu.com/item/%E5%B9%B6%E6%9F%A5%E9%9B%86/9388442?noadapt=1" target="_blank" rel="noopener">并查集-百度百科</a>,<a href="https://agatelee.cn/2017/05/%E5%B8%A6%E6%9D%83%E5%B9%B6%E6%9F%A5%E9%9B%86/" target="_blank" rel="noopener">agatelee’s 带权并查集</a></p>
+<h2 id="什么是并查集"><a href="#什么是并查集" class="headerlink" title="什么是并查集"></a>什么是并查集</h2><p>并查集是一种树形的数据结构,用于处理一些不相交集合的合并及查询问题.</p>
 <p>并查集可以看作一个森林,森林中的每一颗树都代表着一个集合.</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -567,6 +588,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/12/ScrollMagic中文文档/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/12/ScrollMagic中文文档/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -726,6 +757,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/12/Hello-World/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/12/Hello-World/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1092,6 +1133,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'PPNFrHoHn6SR6hUECmuN4Kdd-gzGzoHsz',
+        appKey: 'V06WjdCtbrcnSz7xE97T5vw2',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
